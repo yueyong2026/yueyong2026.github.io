@@ -1,17 +1,82 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <title>我的个人网站</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天行者 · 个人博客</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-    h1 { color: #2c3e50; }
-    p { color: #7f8c8d; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8f9fa;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    .subtitle {
+      color: #7f8c8d;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      border-left: 3px solid #3498db;
+      padding-left: 15px;
+    }
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .menu a:hover {
+      background: #e3f2fd;
+    }
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #95a5a6;
+      font-size: 0.9rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .container { padding: 1.5rem; }
+    }
   </style>
 </head>
 <body>
-  <h1>欢迎来到我的网站！</h1>
-  <p>这是通过 GitHub Pages + 阿里云域名部署的免费个人站。</p>
-  <p>部署成功！🎉</p>
+  <div class="container">
+    <h1>天行者</h1>
+    <div class="subtitle">记录技术与思考 🌱</div>
+    
+    <div class="menu">
+      <a href="posts/hello.html">📖 你好，世界！</a>
+      <a href="about.html">👤 关于我</a>
+    </div>
+    
+    <div class="footer">
+      © 2026 skywalker | 个人技术博客
+    </div>
+  </div>
 </body>
 </html>
