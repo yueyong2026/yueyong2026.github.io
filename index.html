@@ -11,66 +11,120 @@
       line-height: 1.6;
       color: #333;
       background: #f8f9fa;
-      padding: 2rem;
+      padding: 1.5rem;
     }
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+    }
+    /* 左侧导航栏 */
+    .sidebar {
+      width: 280px;
       background: white;
-      padding: 2.5rem;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 1.8rem 1.5rem;
+      height: fit-content;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #2c3e50;
-    }
-    .subtitle {
-      color: #7f8c8d;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      border-left: 3px solid #3498db;
-      padding-left: 15px;
-    }
-    .divider {
-      height: 1px;
-      background: #eee;
-      margin: 2.5rem 0;
-    }
-    .new-post-btn {
-      display: inline-block;
-      background: #e3f2fd;          /* 淡蓝色背景 */
-      color: #2980b9;               /* 深蓝文字 */
-      text-decoration: none;
-      padding: 0.4rem 0.9rem;       /* 缩小尺寸 */
-      border-radius: 5px;           /* 圆角微调 */
-      font-weight: bold;
-      font-size: 0.95rem;           /* 略小字号 */
-      transition: all 0.2s;
-      border: 1px solid #bbdefb;    /* 淡蓝边框 */
-    }
-    .new-post-btn:hover {
-      background: #bbdefb;          /* 悬停加深 */
-      transform: translateY(-1px);  /* 微动效 */
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    .menu {
+    .header {
       display: flex;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-      flex-wrap: wrap;
+      align-items: baseline; /* 关键：底对齐 */
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
     }
-    .menu a {
+    .header h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      line-height: 1.2;
+    }
+    .header a {
+      color: #7f8c8d;
       text-decoration: none;
-      color: #2980b9;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: background 0.3s;
+      font-size: 0.9rem;       /* 缩小字号 */
+      line-height: 1.2;        /* 与标题基线对齐 */
+      transition: color 0.2s;
     }
-    .menu a:hover {
+    .header a:hover {
+      color: #2980b9;
+    }
+    .recent-posts h2 {
+      font-size: 1.1rem;
+      color: #2c3e50;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed #eee;
+    }
+    .recent-posts ul {
+      list-style: none;
+    }
+    .recent-posts li {
+      margin-bottom: 0.9rem;
+    }
+    .recent-posts a {
+      color: #2980b9;
+      text-decoration: none;
+      font-weight: 500;
+      line-height: 1.4;
+      display: block;
+      padding: 0.3rem 0;
+      transition: all 0.2s;
+      border-radius: 4px;
+    }
+    .recent-posts a:hover {
       background: #e3f2fd;
+      color: #1a5276;
+    }
+    /* 右侧内容区 */
+    .main-content {
+      flex: 1;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 2.5rem;
+    }
+    .post-title {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 0.8rem;
+    }
+    .post-meta {
+      color: #7f8c8d;
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
+    .post-content {
+      line-height: 1.8;
+      color: #555;
+    }
+    .post-content h2 {
+      margin: 1.8rem 0 1rem;
+      color: #3498db;
+    }
+    .post-content p {
+      margin-bottom: 1.2rem;
+    }
+    .post-content ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0 1.2rem;
+    }
+    .post-content li {
+      margin: 0.5rem 0;
+    }
+    .tag {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1976d2;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
     }
     .footer {
       margin-top: 2.5rem;
@@ -80,38 +134,81 @@
       padding-top: 1.5rem;
       border-top: 1px solid #eee;
     }
-    @media (max-width: 600px) {
-      body { padding: 1rem; }
-      .container { padding: 1.5rem; }
-      .new-post-btn { 
-        width: auto; 
-        display: inline-block; 
-        margin-top: 0.5rem;
+    /* 手机适配 */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        order: 2;
+      }
+      .main-content {
+        order: 1;
+        margin-bottom: 1.5rem;
+      }
+      body {
+        padding: 1rem;
+      }
+      .main-content {
+        padding: 1.8rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>天行者</h1>
-    <div class="subtitle">记录技术与思考 🌱</div>
-    
-    <!-- 新增：下滑横线 + 发布按钮 -->
-    <div class="divider"></div>
-    <a href="https://github.com/yueyong2026/yueyong2026.github.io/new/main?filename=posts/YYYY-MM-DD-new-article.md&value=%23%20%E6%96%B0%E6%96%87%E7%AB%A0%0A%0A%E8%BF%99%E9%87%8C%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%A0%E7%9A%84%E5%86%85%E5%AE%B9..." 
-       target="_blank" 
-       class="new-post-btn">
-      ✍️ 发布新文章
-    </a>
+    <!-- 左侧导航栏 -->
+    <aside class="sidebar">
+      <div class="header">
+        <h1>天行者</h1>
+        <a href="about.html">👤 关于我</a>
+      </div>
+      
+      <div class="recent-posts">
+        <h2>近期文章</h2>
+        <ul>
+          <li><a href="posts/hello.html">你好，世界！</a></li>
+          <!-- 后续新增文章请在此处添加，最多保留5条 -->
+        </ul>
+      </div>
+    </aside>
 
-    <div class="menu">
-      <a href="posts/hello.html">📖 你好，世界！</a>
-      <a href="about.html">👤 关于我</a>
-    </div>
-    
-    <div class="footer">
-      © 2026 skywalker | 个人技术博客
-    </div>
+    <!-- 右侧最新文章内容 -->
+    <main class="main-content">
+      <h1 class="post-title">你好，世界！🌱</h1>
+      <div class="post-meta">作者：skywalker | 发布于：2026-02-09</div>
+      
+      <div class="post-content">
+        <p>这是 skywalker 的个人技术博客第一篇文章！</p>
+        
+        <h2>为什么选择这个方案？</h2>
+        <ul>
+          <li>✅ <strong>零工具依赖</strong>：无需 Hugo/Node.js/下载主题</li>
+          <li>✅ <strong>纯 HTML + CSS</strong>：双击即预览，无报错风险</li>
+          <li>✅ <strong>完全自主</strong>：内容存在 GitHub，永不丢失</li>
+          <li>✅ <strong>极速加载</strong>：无外部资源，秒开页面</li>
+        </ul>
+        
+        <h2>未来规划</h2>
+        <p>这里将专注记录：</p>
+        <ul>
+          <li>💻 编程技术与实践</li>
+          <li>🌱 个人思考与成长</li>
+          <li>🚀 工具与效率分享</li>
+        </ul>
+        
+        <div style="margin-top: 1.5rem;">
+          <span class="tag">#入门</span>
+          <span class="tag">#博客</span>
+          <span class="tag">#skywalker</span>
+        </div>
+      </div>
+      
+      <div class="footer">
+        © 2026 skywalker | 个人技术博客
+      </div>
+    </main>
   </div>
 </body>
 </html>
