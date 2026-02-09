@@ -33,10 +33,32 @@
       border-left: 3px solid #3498db;
       padding-left: 15px;
     }
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 2.5rem 0;
+    }
+    .new-post-btn {
+      display: inline-block;
+      background: #e3f2fd;          /* 淡蓝色背景 */
+      color: #2980b9;               /* 深蓝文字 */
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;       /* 缩小尺寸 */
+      border-radius: 5px;           /* 圆角微调 */
+      font-weight: bold;
+      font-size: 0.95rem;           /* 略小字号 */
+      transition: all 0.2s;
+      border: 1px solid #bbdefb;    /* 淡蓝边框 */
+    }
+    .new-post-btn:hover {
+      background: #bbdefb;          /* 悬停加深 */
+      transform: translateY(-1px);  /* 微动效 */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
     .menu {
       display: flex;
       gap: 1.5rem;
-      margin: 2rem 0;
+      margin: 1.5rem 0;
       flex-wrap: wrap;
     }
     .menu a {
@@ -61,6 +83,11 @@
     @media (max-width: 600px) {
       body { padding: 1rem; }
       .container { padding: 1.5rem; }
+      .new-post-btn { 
+        width: auto; 
+        display: inline-block; 
+        margin-top: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -69,6 +96,14 @@
     <h1>天行者</h1>
     <div class="subtitle">记录技术与思考 🌱</div>
     
+    <!-- 新增：下滑横线 + 发布按钮 -->
+    <div class="divider"></div>
+    <a href="https://github.com/yueyong2026/yueyong2026.github.io/new/main?filename=posts/YYYY-MM-DD-new-article.md&value=%23%20%E6%96%B0%E6%96%87%E7%AB%A0%0A%0A%E8%BF%99%E9%87%8C%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%A0%E7%9A%84%E5%86%85%E5%AE%B9..." 
+       target="_blank" 
+       class="new-post-btn">
+      ✍️ 发布新文章
+    </a>
+
     <div class="menu">
       <a href="posts/hello.html">📖 你好，世界！</a>
       <a href="about.html">👤 关于我</a>
